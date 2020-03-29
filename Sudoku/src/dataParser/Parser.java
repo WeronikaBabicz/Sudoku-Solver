@@ -1,7 +1,8 @@
 package dataParser;
 
 import puzzleInfo.Board;
-import puzzleInfo.Puzzle;
+import puzzleInfo.Cell;
+import puzzleInfo.Sudoku;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +15,7 @@ public class Parser {
     private double puzzleDifficulty;
     private Board board;
 
-    public Puzzle parse(String filename, int puzzleNumber){
+    public Sudoku parse(String filename, int puzzleNumber){
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(new File(getClass().getClassLoader().getResource("puzzleData/" +filename).getFile())));
@@ -30,7 +31,7 @@ public class Parser {
             e.printStackTrace();
         }
 
-        return new Puzzle(puzzleDifficulty, board);
+        return new Sudoku(puzzleDifficulty, board);
 
     }
 
@@ -40,22 +41,22 @@ public class Parser {
 
     private void loadPuzzle(String line){
         StringTokenizer tokenizer = splitLine(line);
-        tokenizer.nextToken(); // index
+        tokenizer.nextToken();
         puzzleDifficulty = Double.parseDouble(tokenizer.nextToken());
         loadBoard(tokenizer.nextToken());
     }
 
     private void loadBoard(String str){
-        ArrayList<ArrayList<Integer>> board = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> row = new ArrayList<Integer>();
+        ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>();
+        ArrayList<Cell> row = new ArrayList<Cell>();
 
-        String strWithoutDots = str.replace(".", "0");
+        String strWithoutDots = str.replace(".", String.valueOf(Cell.EMPTY_CELL_VALUE));
 
         for (char c: strWithoutDots.toCharArray()) {
-            row.add(Character.getNumericValue(c));
+            row.add(new Cell(Character.getNumericValue(c)));
             if (row.size() == Board.SUDOKU_SIZE){
                 board.add(row);
-                row = new ArrayList<Integer>();
+                row = new ArrayList<Cell>();
             }
         }
         this.board = new Board(board);
