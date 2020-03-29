@@ -1,6 +1,6 @@
-package sudoku.searchMethods;
+package sudokuSolver.solveAlgorithms;
 
-import puzzleInfo.Board;
+import sudokuInfo.Board;
 
 public interface SolveAlgorithm {
     Board runAlgorithm(Board board);

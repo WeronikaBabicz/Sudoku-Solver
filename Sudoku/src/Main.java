@@ -1,13 +1,13 @@
 import dataParser.Parser;
-import puzzleInfo.Board;
-import puzzleInfo.Sudoku;
-import sudoku.SudokuSolver;
-import sudoku.searchMethods.rollbackSearchMethod.cellSelection.CellSelection;
-import sudoku.searchMethods.rollbackSearchMethod.cellSelection.InOrderCellSelection;
-import sudoku.searchMethods.rollbackSearchMethod.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudoku.searchMethods.rollbackSearchMethod.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
-import sudoku.searchMethods.rollbackSearchMethod.BacktrackingAlgorithm;
-import sudoku.searchMethods.SolveAlgorithm;
+import sudokuInfo.Board;
+import sudokuInfo.Sudoku;
+import sudokuSolver.SudokuSolver;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.CellSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.InOrderCellSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.BacktrackingAlgorithm;
+import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 
 public class Main {
     private static final int SUDOKU_NUMBER = 43;

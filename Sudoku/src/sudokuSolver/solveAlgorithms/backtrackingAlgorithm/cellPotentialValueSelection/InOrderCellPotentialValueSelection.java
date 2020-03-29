@@ -1,6 +1,6 @@
-package sudoku.searchMethods.rollbackSearchMethod.cellPotentialValueSelection;
+package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection;
 
-import puzzleInfo.Cell;
+import sudokuInfo.Cell;
 
 import java.util.Collections;
 

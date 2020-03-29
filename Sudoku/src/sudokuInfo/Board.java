@@ -1,4 +1,4 @@
-package puzzleInfo;
+package sudokuInfo;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,10 @@
-package sudoku.searchMethods.rollbackSearchMethod;
+package sudokuSolver.solveAlgorithms.backtrackingAlgorithm;
 
-import puzzleInfo.Board;
-import sudoku.searchMethods.SolveAlgorithm;
-import sudoku.searchMethods.rollbackSearchMethod.cellSelection.CellSelection;
-import sudoku.searchMethods.rollbackSearchMethod.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudoku.searchMethods.rollbackSearchMethod.treeStructure.Tree;
+import sudokuInfo.Board;
+import sudokuSolver.solveAlgorithms.SolveAlgorithm;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.CellSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure.Tree;
 
 public class BacktrackingAlgorithm implements SolveAlgorithm {
     private CellSelection cellSelection;

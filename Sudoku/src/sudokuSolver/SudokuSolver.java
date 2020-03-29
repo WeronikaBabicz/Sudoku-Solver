@@ -1,8 +1,8 @@
-package sudoku;
+package sudokuSolver;
 
-import puzzleInfo.Board;
-import puzzleInfo.Sudoku;
-import sudoku.searchMethods.SolveAlgorithm;
+import sudokuInfo.Board;
+import sudokuInfo.Sudoku;
+import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 
 public class SudokuSolver {
     private Sudoku sudoku;

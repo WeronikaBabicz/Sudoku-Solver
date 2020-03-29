@@ -1,7 +1,7 @@
-package sudoku.searchMethods.rollbackSearchMethod.cellSelection;
+package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection;
 
-import puzzleInfo.Board;
-import puzzleInfo.Cell;
+import sudokuInfo.Board;
+import sudokuInfo.Cell;
 
 import java.util.ArrayList;
 

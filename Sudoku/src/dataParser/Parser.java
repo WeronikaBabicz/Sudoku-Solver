@@ -1,8 +1,8 @@
 package dataParser;
 
-import puzzleInfo.Board;
-import puzzleInfo.Cell;
-import puzzleInfo.Sudoku;
+import sudokuInfo.Board;
+import sudokuInfo.Cell;
+import sudokuInfo.Sudoku;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +18,7 @@ public class Parser {
     public Sudoku parse(String filename, int puzzleNumber){
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(new File(getClass().getClassLoader().getResource("puzzleData/" +filename).getFile())));
+            reader = new BufferedReader(new FileReader(new File(getClass().getClassLoader().getResource("sudokuData/" +filename).getFile())));
             reader.readLine();
             String line;
 
