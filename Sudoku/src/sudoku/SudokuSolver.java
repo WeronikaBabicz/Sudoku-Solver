@@ -1,6 +1,6 @@
 package sudoku;
 
-import puzzle.Puzzle;
+import puzzleInfo.Puzzle;
 
 public class SudokuSolver {
     Puzzle puzzle;

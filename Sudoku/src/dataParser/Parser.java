@@ -1,7 +1,7 @@
 package dataParser;
 
-import puzzle.Board;
-import puzzle.Puzzle;
+import puzzleInfo.Board;
+import puzzleInfo.Puzzle;
 
 import java.io.BufferedReader;
 import java.io.File;

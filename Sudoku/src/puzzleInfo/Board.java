@@ -1,4 +1,4 @@
-package puzzle;
+package puzzleInfo;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package puzzle;
+package puzzleInfo;
 
 public class Puzzle {
     private double difficulty;
