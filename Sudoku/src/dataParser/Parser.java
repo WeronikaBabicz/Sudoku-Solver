@@ -21,7 +21,7 @@ public class Parser {
             reader.readLine();
             String line;
 
-            while (getPuzzleIndexFromLine(line = reader.readLine()) != puzzleNumber) {}
+            while (puzzleNumber != Integer.parseInt(splitLine(line = reader.readLine()).nextToken())) {}
             loadPuzzle(line);
             reader.close();
 
@@ -34,13 +34,12 @@ public class Parser {
 
     }
 
-    private int getPuzzleIndexFromLine(String line){
-        StringTokenizer tokenizer = new StringTokenizer(line, ";");
-        return Integer.parseInt(tokenizer.nextToken());
+    private StringTokenizer splitLine(String line){
+        return new StringTokenizer(line, ";");
     }
 
     private void loadPuzzle(String line){
-        StringTokenizer tokenizer = new StringTokenizer(line, ";");
+        StringTokenizer tokenizer = splitLine(line);
         tokenizer.nextToken(); // index
         puzzleDifficulty = Double.parseDouble(tokenizer.nextToken());
         loadBoard(tokenizer.nextToken());
@@ -48,16 +47,16 @@ public class Parser {
 
     private void loadBoard(String str){
         ArrayList<ArrayList<Integer>> board = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> row = new ArrayList<Integer>();
+
         String strWithoutDots = str.replace(".", "0");
 
-        ArrayList<Integer> row = new ArrayList<Integer>();
         for (char c: strWithoutDots.toCharArray()) {
-            if (row.size() == 9){
+            row.add(Character.getNumericValue(c));
+            if (row.size() == Board.SUDOKU_SIZE){
                 board.add(row);
                 row = new ArrayList<Integer>();
             }
-            else
-                row.add(Character.getNumericValue(c));
         }
         this.board = new Board(board);
     }
