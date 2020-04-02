@@ -6,7 +6,7 @@ import java.util.Collections;
 
 public class InOrderCellPotentialValueSelection implements CellPotentialValueSelection {
     @Override
-    public int selectCellValue(Cell cell) {
+    public int selectCellPotentialValue(Cell cell) {
         if (cell.getDomain().size() > 0){
             Collections.sort(cell.getDomain());
             return cell.getDomain().get(0);

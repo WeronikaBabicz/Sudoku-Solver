@@ -1,7 +1,9 @@
 package sudokuSolver.solveAlgorithms;
 
-import sudokuInfo.Board;
+import sudokuInfo.Sudoku;
+
+import java.util.ArrayList;
 
 public interface SolveAlgorithm {
-    Board runAlgorithm(Board board);
+    ArrayList<Sudoku> runAlgorithm(Sudoku sudoku);
 }

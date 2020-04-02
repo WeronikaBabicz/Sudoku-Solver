@@ -13,8 +13,17 @@ public class Cell {
         initializeDomain();
     }
 
+    public Cell(Cell other){
+        this.value = other.value;
+        this.domain = new ArrayList<Integer>(other.domain);
+    }
+
     public int getValue() {
         return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public ArrayList<Integer> getDomain() {
@@ -29,5 +38,9 @@ public class Cell {
     @Override
     public String toString() {
         return String.valueOf(value);
+    }
+
+    public void shrinkDomain(int value){
+        domain.remove(Integer.valueOf(value));
     }
 }

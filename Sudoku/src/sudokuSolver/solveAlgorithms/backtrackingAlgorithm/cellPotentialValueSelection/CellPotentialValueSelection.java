@@ -3,5 +3,5 @@ package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSel
 import sudokuInfo.Cell;
 
 public interface CellPotentialValueSelection {
-    int selectCellValue(Cell cell);
+    int selectCellPotentialValue(Cell cell);
 }

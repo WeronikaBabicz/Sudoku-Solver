@@ -1,8 +1,9 @@
 package sudokuSolver;
 
-import sudokuInfo.Board;
 import sudokuInfo.Sudoku;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
+
+import java.util.ArrayList;
 
 public class SudokuSolver {
     private Sudoku sudoku;
@@ -13,7 +14,7 @@ public class SudokuSolver {
         this.method = method;
     }
 
-    public Board runSolver(){
-        return method.runAlgorithm(sudoku.getBoard());
+    public ArrayList<Sudoku> runSolver(){
+        return method.runAlgorithm(sudoku);
     }
 }

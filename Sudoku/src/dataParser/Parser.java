@@ -1,8 +1,7 @@
 package dataParser;
 
-import sudokuInfo.Board;
-import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
+import sudokuInfo.Cell;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +12,7 @@ import java.util.StringTokenizer;
 
 public class Parser {
     private double puzzleDifficulty;
-    private Board board;
+    private ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>();
 
     public Sudoku parse(String filename, int puzzleNumber){
         BufferedReader reader;
@@ -31,7 +30,7 @@ public class Parser {
             e.printStackTrace();
         }
 
-        return new Sudoku(puzzleDifficulty, board);
+        return new Sudoku(board, puzzleDifficulty);
 
     }
 
@@ -47,18 +46,15 @@ public class Parser {
     }
 
     private void loadBoard(String str){
-        ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>();
         ArrayList<Cell> row = new ArrayList<Cell>();
-
         String strWithoutDots = str.replace(".", String.valueOf(Cell.EMPTY_CELL_VALUE));
 
         for (char c: strWithoutDots.toCharArray()) {
             row.add(new Cell(Character.getNumericValue(c)));
-            if (row.size() == Board.SUDOKU_SIZE){
+            if (row.size() == Sudoku.SUDOKU_SIZE){
                 board.add(row);
                 row = new ArrayList<Cell>();
             }
         }
-        this.board = new Board(board);
     }
 }

@@ -1,8 +1,8 @@
 package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection;
 
-import sudokuInfo.Board;
+import sudokuInfo.Sudoku;
 import sudokuInfo.Cell;
 
 public interface CellSelection {
-    Cell selectCell(Board board);
+    Cell selectCell(Sudoku sudoku);
 }
