@@ -11,7 +11,7 @@ import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import java.util.ArrayList;
 
 public class Main {
-    private static final int SUDOKU_NUMBER = 2;
+    private static final int SUDOKU_NUMBER = 30;
     public static void main(String [] args){
         Parser parser = new Parser();
         Sudoku sudoku = parser.parse("Sudoku.csv", SUDOKU_NUMBER);
@@ -24,6 +24,7 @@ public class Main {
         SudokuSolver sudokuSolver = new SudokuSolver(sudoku, solveAlgorithm);
 
         ArrayList<Sudoku> solution = sudokuSolver.runSolver();
+        System.out.println("SOLUTION: " + solution.size());
         for (Sudoku s : solution){
             System.out.println("Rozwiązanie sudoku " + SUDOKU_NUMBER + " o trudności " + s.getDifficulty());
             System.out.println(s);

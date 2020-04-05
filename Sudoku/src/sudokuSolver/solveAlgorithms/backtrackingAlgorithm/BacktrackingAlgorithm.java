@@ -25,35 +25,31 @@ public class BacktrackingAlgorithm implements SolveAlgorithm {
     public ArrayList<Sudoku> runAlgorithm(Sudoku sudoku){
         tree = new Tree<Sudoku>(new Node<Sudoku>(sudoku));
         createTree(tree.getRoot());
-
-
         return solution;
     }
 
     private Node<Sudoku> createTree(Node<Sudoku> currentNode)  {
-        Sudoku currentSudoku = currentNode.getValue(); // not a deep copy
-        Sudoku offspringSudoku = new Sudoku(currentSudoku); //deep copy
+        Sudoku currentSudoku = new Sudoku(currentNode.getValue());
+        Sudoku offspringSudoku = new Sudoku(currentSudoku);
 
-        Cell cell = cellSelection.selectCell(currentSudoku); //cell z currentNode'a
+        Cell cell = cellSelection.selectCell(currentSudoku);
 
-        if (cell != null){
-            while(cell.getDomain().size() > 0){
-                int cellPotentialValue = cellValueSelection.selectCellPotentialValue(cell);
-                cell.shrinkDomain(cellPotentialValue); // cell's domain from currentSudoku and currentNode will change
-                offspringSudoku.setCellValue(cell, cellPotentialValue);
+        int selectedCellRowIdx = currentSudoku.getRowIndexOfCell(cell);
+        int selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(cell);
 
-                Node<Sudoku> offspringNode = new Node<>(offspringSudoku);
-                offspringNode.setParent(currentNode);
+        while(cell.getDomain().size() > 0){
+            int cellPotentialValue = cellValueSelection.selectCellPotentialValue(cell);
 
-                if (offspringSudoku.isSolved()){
-                    solution.add(offspringSudoku);
-                    return offspringNode;
-                }
+            cell.shrinkDomain(cellPotentialValue);
+            offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, cellPotentialValue);
+            Node<Sudoku> offspringNode = new Node<>(offspringSudoku);
+            offspringNode.setParent(currentNode);
 
-                else if (offspringSudoku.hasCorrectValues())
-                    currentNode.addOffspring(createTree(offspringNode));
+            if (offspringSudoku.isSolved())
+                solution.add(offspringSudoku);
 
-            }
+            else if (offspringSudoku.hasCorrectValues())
+                currentNode.addOffspring(createTree(offspringNode));
         }
         return currentNode;
     }

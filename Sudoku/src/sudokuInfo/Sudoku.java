@@ -24,6 +24,7 @@ public class Sudoku {
             row = new ArrayList<Cell>();
         }
         this.board = board;
+        this.difficulty = b.difficulty;
     }
 
     public ArrayList<ArrayList<Cell>> getBoard() {
@@ -73,18 +74,26 @@ public class Sudoku {
         return null;
     }
 
-    public void setCellValue(Cell cell, int value){
-        cell.setValue(value);
+    public void setCellValue(int row, int column, int value){
+        board.get(row).get(column).setValue(value);
     }
 
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        for (ArrayList<Cell> row: board){
-            for (Cell cell: row)
-                s.append(cell).append(" ");
-
+        for (int i = 0; i < board.size(); i++){
+            if (i % 3 == 0)
+                s.append("-------------------------").append("\n");
+            for (int j = 0; j < board.get(i).size(); j++){
+                if (j % 3 == 0)
+                    s.append("| ");
+                s.append(board.get(i).get(j)).append(" ");
+                if (j == board.get(i).size() - 1)
+                    s.append("| ");
+            }
             s.append("\n");
+            if (i == board.size() - 1)
+                s.append("-------------------------").append("\n");
         }
         return String.valueOf(s);
     }
@@ -139,6 +148,7 @@ public class Sudoku {
                 else return false;
             }
         }
+        //System.out.println("cool grid");
         return true;
     }
 
