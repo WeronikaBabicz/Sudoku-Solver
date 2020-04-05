@@ -3,8 +3,8 @@ package sudokuSolver.solveAlgorithms.backtrackingAlgorithm;
 import sudokuInfo.Sudoku;
 import sudokuInfo.Cell;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure.Node;
 import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure.Tree;
 

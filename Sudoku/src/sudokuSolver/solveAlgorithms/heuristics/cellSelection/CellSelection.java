@@ -1,4 +1,4 @@
-package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection;
+package sudokuSolver.solveAlgorithms.heuristics.cellSelection;
 
 import sudokuInfo.Sudoku;
 import sudokuInfo.Cell;

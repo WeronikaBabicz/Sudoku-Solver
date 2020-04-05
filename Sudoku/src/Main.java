@@ -1,10 +1,10 @@
 import dataParser.Parser;
 import sudokuInfo.Sudoku;
 import sudokuSolver.SudokuSolver;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellSelection.InOrderCellSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.InOrderCellSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.BacktrackingAlgorithm;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 
