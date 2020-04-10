@@ -1,4 +1,4 @@
-package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure;
+package sudokuSolver.solveAlgorithms.treeStructure;
 
 public class Tree<T> {
     private Node<T> root;

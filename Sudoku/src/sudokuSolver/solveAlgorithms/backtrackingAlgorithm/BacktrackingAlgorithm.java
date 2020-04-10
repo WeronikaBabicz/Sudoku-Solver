@@ -5,8 +5,8 @@ import sudokuInfo.Cell;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure.Node;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure.Tree;
+import sudokuSolver.solveAlgorithms.treeStructure.Node;
+import sudokuSolver.solveAlgorithms.treeStructure.Tree;
 
 import java.util.ArrayList;
 
@@ -24,12 +24,12 @@ public class BacktrackingAlgorithm implements SolveAlgorithm {
     @Override
     public ArrayList<Sudoku> runAlgorithm(Sudoku sudoku){
         tree = new Tree<Sudoku>(new Node<Sudoku>(sudoku));
-        createTree(tree.getRoot());
+        findOffspring(sudoku);
         return solution;
     }
 
-    private Node<Sudoku> createTree(Node<Sudoku> currentNode)  {
-        Sudoku currentSudoku = new Sudoku(currentNode.getValue());
+    private void findOffspring(Sudoku sudoku)  {
+        Sudoku currentSudoku = new Sudoku(sudoku);
         Sudoku offspringSudoku = new Sudoku(currentSudoku);
 
         Cell cell = cellSelection.selectCell(currentSudoku);
@@ -42,16 +42,13 @@ public class BacktrackingAlgorithm implements SolveAlgorithm {
 
             cell.shrinkDomain(cellPotentialValue);
             offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, cellPotentialValue);
-            Node<Sudoku> offspringNode = new Node<>(offspringSudoku);
-            offspringNode.setParent(currentNode);
 
             if (offspringSudoku.isSolved())
                 solution.add(offspringSudoku);
 
             else if (offspringSudoku.hasCorrectValues())
-                currentNode.addOffspring(createTree(offspringNode));
+                findOffspring(offspringSudoku);
         }
-        return currentNode;
     }
 
 

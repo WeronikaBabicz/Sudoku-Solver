@@ -1,4 +1,4 @@
-package sudokuSolver.solveAlgorithms.backtrackingAlgorithm.treeStructure;
+package sudokuSolver.solveAlgorithms.treeStructure;
 
 import java.util.LinkedList;
 
