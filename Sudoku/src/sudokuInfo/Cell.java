@@ -13,7 +13,7 @@ public class Cell {
         initializeDomain();
     }
 
-    public Cell(Cell other){
+    Cell(Cell other){
         this.value = other.value;
         this.domain = new ArrayList<Integer>(other.domain);
     }
@@ -22,7 +22,7 @@ public class Cell {
         return value;
     }
 
-    public void setValue(int value) {
+    void setValue(int value) {
         this.value = value;
     }
 
@@ -31,7 +31,7 @@ public class Cell {
     }
 
     private void initializeDomain(){
-        if (EMPTY_CELL_VALUE == value)
+        if (isEmptyCell())
             domain = new ArrayList<Integer>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9));
     }
 
@@ -42,5 +42,9 @@ public class Cell {
 
     public void shrinkDomain(int value){
         domain.remove(Integer.valueOf(value));
+    }
+
+    public boolean isEmptyCell(){
+        return value == EMPTY_CELL_VALUE;
     }
 }

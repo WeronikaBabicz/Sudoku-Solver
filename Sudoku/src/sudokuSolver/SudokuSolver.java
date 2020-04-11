@@ -15,6 +15,31 @@ public class SudokuSolver {
     }
 
     public ArrayList<Sudoku> runSolver(){
-        return method.runAlgorithm(sudoku);
+        method.run(sudoku);
+        return method.getSolution();
+    }
+
+    public long getFindSolutionsTime(){
+        return method.getSurvey_findSolutionsTime();
+    }
+
+    public long getFindFirstSolutionTime(){
+        return method.getSurvey_findFirstSolutionTime();
+    }
+
+    public int getNumberOfBacktracks(){
+        return method.getSurvey_backtracks();
+    }
+
+    public int getNumberOfBacktracksFirstSolution(){
+        return method.getSurvey_backtracksFirstSolution();
+    }
+
+    public int getNumberOfVisitedNodes(){
+        return method.getSurvey_visitedNodes();
+    }
+
+    public int getNumberOfVisitedNodesFirstSolution(){
+        return method.getSurvey_visitedNodesFirstSolution();
     }
 }

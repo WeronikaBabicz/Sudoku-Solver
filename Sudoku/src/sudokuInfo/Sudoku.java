@@ -148,7 +148,6 @@ public class Sudoku {
                 else return false;
             }
         }
-        //System.out.println("cool grid");
         return true;
     }
 
@@ -160,5 +159,48 @@ public class Sudoku {
             }
         }
         return true;
+    }
+
+    public boolean shrinkDomains(Cell cell, int shrinkValue){
+        return
+        shrinkDomainsOfCellsInRow(getRowIndexOfCell(cell), shrinkValue) &&
+        shrinkDomainsOfCellsInColumn(getColumnIndexOfCell(cell), shrinkValue) &&
+        shrinkDomainsOfCellsInGrid(getRowIndexOfCell(cell), getColumnIndexOfCell(cell), shrinkValue);
+    }
+
+    private boolean shrinkDomainsOfCellsInRow(int rowIndex, int shrinkValue){
+        for (Cell cell : board.get(rowIndex)) {
+            cell.shrinkDomain(shrinkValue);
+            if (hasEmptyCellEmptyDomain(cell))
+                return false;
+        }
+        return true;
+    }
+
+    private boolean shrinkDomainsOfCellsInColumn(int columnIndex, int shrinkValue){
+        for (ArrayList<Cell> row : board) {
+            row.get(columnIndex).shrinkDomain(shrinkValue);
+            if (hasEmptyCellEmptyDomain(row.get(columnIndex)))
+                return false;
+        }
+        return true;
+    }
+
+    private boolean shrinkDomainsOfCellsInGrid(int rowIndex, int columnIndex, int shrinkValue){
+        int startRowIdx = rowIndex - (rowIndex % 3);
+        int startColumnIdx = columnIndex - (columnIndex % 3);
+
+        for (int i = startRowIdx; i < startRowIdx + 3; i++){
+            for (int j = startColumnIdx; j < startColumnIdx + 3; j++) {
+                board.get(i).get(j).shrinkDomain(shrinkValue);
+                if (hasEmptyCellEmptyDomain(board.get(i).get(j)))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean hasEmptyCellEmptyDomain(Cell cell){
+        return cell.isEmptyCell() && cell.getDomain().size() == 0;
     }
 }

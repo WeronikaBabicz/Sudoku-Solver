@@ -5,30 +5,22 @@ import sudokuInfo.Cell;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudokuSolver.solveAlgorithms.treeStructure.Node;
-import sudokuSolver.solveAlgorithms.treeStructure.Tree;
 
-import java.util.ArrayList;
 
-public class BacktrackingAlgorithm implements SolveAlgorithm {
-    private CellSelection cellSelection;
-    private CellPotentialValueSelection cellValueSelection;
-    private Tree<Sudoku> tree;
-    private ArrayList<Sudoku> solution  = new ArrayList<>();
+public class BacktrackingAlgorithm extends SolveAlgorithm {
 
     public BacktrackingAlgorithm(CellSelection cellSelection, CellPotentialValueSelection cellValueSelection) {
         this.cellSelection = cellSelection;
         this.cellValueSelection = cellValueSelection;
     }
 
-    @Override
-    public ArrayList<Sudoku> runAlgorithm(Sudoku sudoku){
-        tree = new Tree<Sudoku>(new Node<Sudoku>(sudoku));
+    public void runAlgorithm(Sudoku sudoku){
         findOffspring(sudoku);
-        return solution;
     }
 
-    private void findOffspring(Sudoku sudoku)  {
+    private void findOffspring(Sudoku sudoku){
+        incrementVisitedNodes();
+
         Sudoku currentSudoku = new Sudoku(sudoku);
         Sudoku offspringSudoku = new Sudoku(currentSudoku);
 
@@ -43,14 +35,18 @@ public class BacktrackingAlgorithm implements SolveAlgorithm {
             cell.shrinkDomain(cellPotentialValue);
             offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, cellPotentialValue);
 
-            if (offspringSudoku.isSolved())
+            if (offspringSudoku.isSolved()){
                 solution.add(offspringSudoku);
+
+                if (isFirstSolution())
+                    setSurveyVariablesAfterFirstSolution();
+            }
 
             else if (offspringSudoku.hasCorrectValues())
                 findOffspring(offspringSudoku);
+
+            else
+                incrementBacktracks();
         }
     }
-
-
-
 }
