@@ -10,13 +10,8 @@ import java.util.ArrayList;
 public abstract class SolveAlgorithm {
     protected CellSelection cellSelection;
     protected CellPotentialValueSelection cellValueSelection;
-    protected ArrayList<Sudoku> solution  = new ArrayList<>();
+    private ArrayList<Sudoku> solution  = new ArrayList<>();
 
-    private Sudoku currentSudoku;
-    protected Sudoku offspringSudoku;
-    protected Cell selectedCell;
-    protected int selectedCellRowIdx;
-    protected int selectedCellColumnIdx;
     protected int selectedCellPotentialValue;
 
     private long survey_startTime = 0;
@@ -36,11 +31,11 @@ public abstract class SolveAlgorithm {
 
     protected abstract void runAlgorithm(Sudoku sudoku);
 
-    protected boolean isFirstSolution(){
+    private boolean isFirstSolution(){
         return 1 == solution.size();
     }
 
-    protected void setSurveyVariablesAfterFirstSolution(){
+    private void setSurveyVariablesAfterFirstSolution(){
         survey_findFirstSolutionTime = System.currentTimeMillis() - survey_startTime;
         survey_visitedNodesFirstSolution = survey_visitedNodes;
         survey_backtracksFirstSolution = survey_backtracks;
@@ -54,27 +49,17 @@ public abstract class SolveAlgorithm {
         survey_visitedNodes++;
     }
 
-    protected void prepareSudokusForCurrentNode(Sudoku sudoku){
-        currentSudoku = new Sudoku(sudoku);
-        offspringSudoku = new Sudoku(currentSudoku);
-    }
 
-    protected void selectCell(){
-        selectedCell = cellSelection.selectCell(currentSudoku);
-        selectedCellRowIdx = currentSudoku.getRowIndexOfCell(selectedCell);
-        selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(selectedCell);
-    }
-
-    protected void selectCellPotentialValue(){
+    protected void selectCellPotentialValue(Cell selectedCell){
         selectedCellPotentialValue = cellValueSelection.selectCellPotentialValue(selectedCell);
     }
 
-    protected void setCellValueInOffspringSudoku(){
+    protected void setCellValueInOffspringSudoku(Sudoku offspringSudoku, Cell selectedCell, int selectedCellRowIdx, int selectedCellColumnIdx){
         selectedCell.shrinkDomain(selectedCellPotentialValue);
         offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, selectedCellPotentialValue);
     }
 
-    protected void updateSolution(){
+    protected void updateSolution(Sudoku offspringSudoku){
         solution.add(offspringSudoku);
 
         if (isFirstSolution())

@@ -8,6 +8,9 @@ public class Cell {
     private int value;
     private ArrayList<Integer> domain = new ArrayList<Integer>();
 
+    public Cell() {
+    }
+
     public Cell(int value) {
         this.value = value;
         initializeDomain();

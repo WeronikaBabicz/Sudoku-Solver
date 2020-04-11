@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8c53f0a-1464-4573-a7ca-dab79cf01311" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/SolveAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/SolveAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" afterDir="false" />

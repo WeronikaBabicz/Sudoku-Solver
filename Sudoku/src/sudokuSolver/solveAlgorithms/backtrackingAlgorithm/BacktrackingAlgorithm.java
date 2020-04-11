@@ -20,15 +20,22 @@ public class BacktrackingAlgorithm extends SolveAlgorithm {
 
     private void findOffspring(Sudoku sudoku){
         incrementVisitedNodes();
-        prepareSudokusForCurrentNode(sudoku);
-        selectCell();
+
+        Sudoku currentSudoku = new Sudoku(sudoku);
+        Sudoku offspringSudoku = new Sudoku(currentSudoku);
+
+        Cell selectedCell = cellSelection.selectCell(currentSudoku);
+
+        int selectedCellRowIdx = currentSudoku.getRowIndexOfCell(selectedCell);
+        int selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(selectedCell);
+
 
         while(!selectedCell.hasEmptyDomain()){
-            selectCellPotentialValue();
-            setCellValueInOffspringSudoku();
+            selectCellPotentialValue(selectedCell);
+            setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 
             if (offspringSudoku.isSolved())
-                updateSolution();
+                updateSolution(offspringSudoku);
 
             else if (offspringSudoku.hasCorrectValues())
                 findOffspring(offspringSudoku);

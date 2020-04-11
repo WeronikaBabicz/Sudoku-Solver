@@ -21,15 +21,22 @@ public class ForwardCheckingAlgorithm extends SolveAlgorithm {
 
     private Node<Sudoku> plotTree(Node<Sudoku> currentNode){
         incrementVisitedNodes();
-        prepareSudokusForCurrentNode(currentNode.getValue());
-        selectCell();
+
+        Sudoku currentSudoku = new Sudoku(currentNode.getValue());
+        Sudoku offspringSudoku = new Sudoku(currentSudoku);
+
+        Cell selectedCell = cellSelection.selectCell(currentSudoku);
+
+        int selectedCellRowIdx = currentSudoku.getRowIndexOfCell(selectedCell);
+        int selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(selectedCell);
+
 
         while(!selectedCell.hasEmptyDomain()){
-            selectCellPotentialValue();
-            setCellValueInOffspringSudoku();
+            selectCellPotentialValue(selectedCell);
+            setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 
             if (offspringSudoku.isSolved())
-                updateSolution();
+                updateSolution(offspringSudoku);
 
             else if (offspringSudoku.hasCorrectValues()){
                 Sudoku futureSudoku = new Sudoku(offspringSudoku);
