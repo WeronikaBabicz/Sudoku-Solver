@@ -44,7 +44,11 @@ public class Cell {
         domain.remove(Integer.valueOf(value));
     }
 
-    public boolean isEmptyCell(){
+    boolean isEmptyCell(){
         return value == EMPTY_CELL_VALUE;
+    }
+
+    public boolean hasEmptyDomain(){
+        return domain.size() == 0;
     }
 }

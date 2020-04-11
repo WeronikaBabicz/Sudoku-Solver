@@ -1,5 +1,6 @@
 package sudokuSolver.solveAlgorithms;
 
+import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
@@ -10,6 +11,13 @@ public abstract class SolveAlgorithm {
     protected CellSelection cellSelection;
     protected CellPotentialValueSelection cellValueSelection;
     protected ArrayList<Sudoku> solution  = new ArrayList<>();
+
+    private Sudoku currentSudoku;
+    protected Sudoku offspringSudoku;
+    protected Cell selectedCell;
+    protected int selectedCellRowIdx;
+    protected int selectedCellColumnIdx;
+    protected int selectedCellPotentialValue;
 
     private long survey_startTime = 0;
     private long survey_findSolutionsTime = 0;
@@ -44,6 +52,33 @@ public abstract class SolveAlgorithm {
 
     protected void incrementVisitedNodes(){
         survey_visitedNodes++;
+    }
+
+    protected void prepareSudokusForCurrentNode(Sudoku sudoku){
+        currentSudoku = new Sudoku(sudoku);
+        offspringSudoku = new Sudoku(currentSudoku);
+    }
+
+    protected void selectCell(){
+        selectedCell = cellSelection.selectCell(currentSudoku);
+        selectedCellRowIdx = currentSudoku.getRowIndexOfCell(selectedCell);
+        selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(selectedCell);
+    }
+
+    protected void selectCellPotentialValue(){
+        selectedCellPotentialValue = cellValueSelection.selectCellPotentialValue(selectedCell);
+    }
+
+    protected void setCellValueInOffspringSudoku(){
+        selectedCell.shrinkDomain(selectedCellPotentialValue);
+        offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, selectedCellPotentialValue);
+    }
+
+    protected void updateSolution(){
+        solution.add(offspringSudoku);
+
+        if (isFirstSolution())
+            setSurveyVariablesAfterFirstSolution();
     }
 
 

@@ -7,8 +7,6 @@ import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellP
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.treeStructure.*;
 
-import java.util.ArrayList;
-
 public class ForwardCheckingAlgorithm extends SolveAlgorithm {
 
     public ForwardCheckingAlgorithm(CellSelection cellSelection, CellPotentialValueSelection cellValueSelection) {
@@ -21,50 +19,33 @@ public class ForwardCheckingAlgorithm extends SolveAlgorithm {
         plotTree(tree.getRoot());
     }
 
-
     private Node<Sudoku> plotTree(Node<Sudoku> currentNode){
         incrementVisitedNodes();
+        prepareSudokusForCurrentNode(currentNode.getValue());
+        selectCell();
 
-        Sudoku currentSudoku = new Sudoku(currentNode.getValue());
-        Sudoku offspringSudoku = new Sudoku(currentSudoku);
+        while(!selectedCell.hasEmptyDomain()){
+            selectCellPotentialValue();
+            setCellValueInOffspringSudoku();
 
-        Cell cell = cellSelection.selectCell(currentSudoku);
-
-        int selectedCellRowIdx = currentSudoku.getRowIndexOfCell(cell);
-        int selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(cell);
-
-        while(cell.getDomain().size() > 0){
-            int cellPotentialValue = cellValueSelection.selectCellPotentialValue(cell);
-
-            cell.shrinkDomain(cellPotentialValue);
-            offspringSudoku.setCellValue(selectedCellRowIdx, selectedCellColumnIdx, cellPotentialValue);
-
-            if (offspringSudoku.isSolved()){
-                solution.add(offspringSudoku);
-
-                if (isFirstSolution())
-                    setSurveyVariablesAfterFirstSolution();
-            }
+            if (offspringSudoku.isSolved())
+                updateSolution();
 
             else if (offspringSudoku.hasCorrectValues()){
                 Sudoku futureSudoku = new Sudoku(offspringSudoku);
-
                 Cell changedCell = futureSudoku.getBoard().get(selectedCellRowIdx).get(selectedCellColumnIdx);
-                boolean hasNotEmptyDomains = futureSudoku.shrinkDomains(changedCell, cellPotentialValue);
+
+                boolean hasNotEmptyDomains = futureSudoku.shrinkDomains(changedCell, selectedCellPotentialValue);
 
                 if (hasNotEmptyDomains){
                     Node<Sudoku> offspringNode = new Node<Sudoku>(futureSudoku);
                     offspringNode.setParent(currentNode);
                     currentNode.addOffspring(plotTree(offspringNode));
                 }
-
                 else incrementBacktracks();
             }
-
-            else
-                incrementBacktracks();
+            else incrementBacktracks();
         }
-
         return currentNode;
     }
 
