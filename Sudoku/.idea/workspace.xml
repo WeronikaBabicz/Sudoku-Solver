@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8c53f0a-1464-4573-a7ca-dab79cf01311" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellPotentialValueSelection/RandomCellPotentialValueSelection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellSelection/MostRestrictiveCellSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/SolveAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/SolveAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/forwardCheckingAlgorithm/ForwardCheckingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/forwardCheckingAlgorithm/ForwardCheckingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sudokuInfo/Sudoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuInfo/Sudoku.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellSelection/InOrderCellSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellSelection/InOrderCellSelection.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

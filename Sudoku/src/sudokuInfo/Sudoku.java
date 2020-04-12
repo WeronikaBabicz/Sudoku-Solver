@@ -47,6 +47,18 @@ public class Sudoku {
         return board.get(getRowIndexOfCell(cell)).indexOf(cell);
     }
 
+    public int numberOfEmptyCells(){
+        int numberOfEmptyCells = 0;
+        for (ArrayList<Cell> row: board){
+            for (Cell cell: row){
+                if (cell.isEmptyCell())
+                    numberOfEmptyCells++;
+
+            }
+        }
+        return numberOfEmptyCells;
+    }
+
 
     private boolean isFilled(){
         for (ArrayList<Cell> row : board){

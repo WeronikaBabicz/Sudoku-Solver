@@ -3,11 +3,11 @@ import sudokuInfo.Sudoku;
 import sudokuSolver.SudokuSolver;
 import sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm.ForwardCheckingAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellSelection.InOrderCellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
-import sudokuSolver.solveAlgorithms.backtrackingAlgorithm.BacktrackingAlgorithm;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.InOrderCellSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveCellSelection;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class Main {
         Parser parser = new Parser();
         Sudoku sudoku = parser.parse("Sudoku.csv", SUDOKU_NUMBER);
 
-        CellSelection cellSelection = new InOrderCellSelection();
+        CellSelection cellSelection = new MostRestrictiveCellSelection();
         CellPotentialValueSelection cellValueSelection = new InOrderCellPotentialValueSelection();
 
 

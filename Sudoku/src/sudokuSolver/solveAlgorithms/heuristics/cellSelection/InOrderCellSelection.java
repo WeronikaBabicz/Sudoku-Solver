@@ -10,7 +10,7 @@ public class InOrderCellSelection implements CellSelection {
     public Cell selectCell(Sudoku sudoku) {
         for (ArrayList<Cell> row: sudoku.getBoard()){
             for (Cell cell: row){
-                if (cell.getValue() == Cell.EMPTY_CELL_VALUE)
+                if (cell.isEmptyCell())
                     return cell;
             }
         }
