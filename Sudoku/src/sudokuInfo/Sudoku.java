@@ -53,7 +53,6 @@ public class Sudoku {
             for (Cell cell: row){
                 if (cell.isEmptyCell())
                     numberOfEmptyCells++;
-
             }
         }
         return numberOfEmptyCells;

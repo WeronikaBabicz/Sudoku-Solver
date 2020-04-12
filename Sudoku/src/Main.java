@@ -2,6 +2,7 @@ import dataParser.Parser;
 import sudokuInfo.Sudoku;
 import sudokuSolver.SudokuSolver;
 import sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm.ForwardCheckingAlgorithm;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.RandomCellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
@@ -18,7 +19,7 @@ public class Main {
         Sudoku sudoku = parser.parse("Sudoku.csv", SUDOKU_NUMBER);
 
         CellSelection cellSelection = new MostRestrictiveCellSelection();
-        CellPotentialValueSelection cellValueSelection = new InOrderCellPotentialValueSelection();
+        CellPotentialValueSelection cellValueSelection = new RandomCellPotentialValueSelection();
 
 
         SolveAlgorithm solveAlgorithm = new ForwardCheckingAlgorithm(cellSelection, cellValueSelection);

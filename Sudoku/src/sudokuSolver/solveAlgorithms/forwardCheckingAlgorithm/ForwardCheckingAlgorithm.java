@@ -31,7 +31,7 @@ public class ForwardCheckingAlgorithm extends SolveAlgorithm {
         int selectedCellColumnIdx = currentSudoku.getColumnIndexOfCell(selectedCell);
 
 
-        while(!selectedCell.hasEmptyDomain()){
+        while(selectedCell.hasNotEmptyDomain()){
             selectCellPotentialValue(selectedCell);
             setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 

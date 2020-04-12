@@ -18,7 +18,7 @@ public class Cell {
         this.domain = new ArrayList<Integer>(other.domain);
     }
 
-    public int getValue() {
+    int getValue() {
         return value;
     }
 
@@ -48,7 +48,7 @@ public class Cell {
         return value == EMPTY_CELL_VALUE;
     }
 
-    public boolean hasEmptyDomain(){
-        return domain.size() == 0;
+    public boolean hasNotEmptyDomain(){
+        return domain.size() != 0;
     }
 }
