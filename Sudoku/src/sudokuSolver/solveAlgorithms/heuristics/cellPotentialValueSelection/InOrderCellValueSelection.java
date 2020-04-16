@@ -1,12 +1,13 @@
 package sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection;
 
 import sudokuInfo.Cell;
+import sudokuInfo.Sudoku;
 
 import java.util.Collections;
 
-public class InOrderCellPotentialValueSelection implements CellPotentialValueSelection {
+public class InOrderCellValueSelection implements CellValueSelection {
     @Override
-    public int selectCellPotentialValue(Cell cell) {
+    public int selectCellPotentialValue(Cell cell, Sudoku sudoku) {
         if (cell.getDomain().size() > 0){
             Collections.sort(cell.getDomain());
             return cell.getDomain().get(0);

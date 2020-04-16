@@ -3,13 +3,13 @@ package sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm;
 import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.treeStructure.*;
 
 public class ForwardCheckingAlgorithm extends SolveAlgorithm {
 
-    public ForwardCheckingAlgorithm(CellSelection cellSelection, CellPotentialValueSelection cellValueSelection) {
+    public ForwardCheckingAlgorithm(CellSelection cellSelection, CellValueSelection cellValueSelection) {
         this.cellSelection = cellSelection;
         this.cellValueSelection = cellValueSelection;
     }
@@ -32,7 +32,7 @@ public class ForwardCheckingAlgorithm extends SolveAlgorithm {
 
 
         while(selectedCell.hasNotEmptyDomain()){
-            selectCellPotentialValue(selectedCell);
+            selectCellPotentialValue(selectedCell, currentSudoku);
             setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 
             if (offspringSudoku.isSolved())

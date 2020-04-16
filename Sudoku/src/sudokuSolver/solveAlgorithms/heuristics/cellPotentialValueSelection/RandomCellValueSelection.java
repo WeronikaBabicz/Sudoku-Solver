@@ -1,10 +1,11 @@
 package sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection;
 
 import sudokuInfo.Cell;
+import sudokuInfo.Sudoku;
 
-public class RandomCellPotentialValueSelection implements CellPotentialValueSelection {
+public class RandomCellValueSelection implements CellValueSelection {
     @Override
-    public int selectCellPotentialValue(Cell cell) {
+    public int selectCellPotentialValue(Cell cell, Sudoku sudoku) {
         if (cell.getDomain().size() > 0){
             return cell.getDomain().get((int)(Math.random() * cell.getDomain().size()));
         }

@@ -2,13 +2,10 @@ import dataParser.Parser;
 import sudokuInfo.Sudoku;
 import sudokuSolver.SudokuSolver;
 import sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm.ForwardCheckingAlgorithm;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.RandomCellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.LeastOccurencedInRowCellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.InOrderCellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
-import sudokuSolver.solveAlgorithms.heuristics.cellSelection.InOrderCellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveCellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveInGridCellSelection;
 
 import java.util.ArrayList;
@@ -20,7 +17,7 @@ public class Main {
         Sudoku sudoku = parser.parse("Sudoku.csv", SUDOKU_NUMBER);
 
         CellSelection cellSelection = new MostRestrictiveInGridCellSelection();
-        CellPotentialValueSelection cellValueSelection = new InOrderCellPotentialValueSelection();
+        CellValueSelection cellValueSelection = new LeastOccurencedInRowCellValueSelection();
 
 
         SolveAlgorithm solveAlgorithm = new ForwardCheckingAlgorithm(cellSelection, cellValueSelection);

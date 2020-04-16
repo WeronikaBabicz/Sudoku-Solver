@@ -1,6 +1,7 @@
 package sudokuInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Sudoku {
     public static final int SUDOKU_SIZE = 9;
@@ -13,18 +14,18 @@ public class Sudoku {
         this.difficulty = difficulty;
     }
 
-    public Sudoku(Sudoku b) {
+    public Sudoku(Sudoku sudoku) {
         ArrayList<ArrayList<Cell>> board = new ArrayList<ArrayList<Cell>>();
         ArrayList<Cell> row = new ArrayList<Cell>();
-        for (ArrayList<Cell> bd : b.getBoard()){
-            for (Cell cell : bd){
+        for (ArrayList<Cell> r : sudoku.getBoard()){
+            for (Cell cell : r){
                 row.add(new Cell(cell));
             }
             board.add(row);
             row = new ArrayList<Cell>();
         }
         this.board = board;
-        this.difficulty = b.difficulty;
+        this.difficulty = sudoku.difficulty;
     }
 
     public ArrayList<ArrayList<Cell>> getBoard() {

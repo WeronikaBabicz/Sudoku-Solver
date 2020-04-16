@@ -2,14 +2,14 @@ package sudokuSolver.solveAlgorithms;
 
 import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 
 import java.util.ArrayList;
 
 public abstract class SolveAlgorithm {
     protected CellSelection cellSelection;
-    protected CellPotentialValueSelection cellValueSelection;
+    protected CellValueSelection cellValueSelection;
     private ArrayList<Sudoku> solution  = new ArrayList<>();
 
     protected int selectedCellPotentialValue;
@@ -50,8 +50,8 @@ public abstract class SolveAlgorithm {
     }
 
 
-    protected void selectCellPotentialValue(Cell selectedCell){
-        selectedCellPotentialValue = cellValueSelection.selectCellPotentialValue(selectedCell);
+    protected void selectCellPotentialValue(Cell selectedCell, Sudoku sudoku){
+        selectedCellPotentialValue = cellValueSelection.selectCellPotentialValue(selectedCell, sudoku);
     }
 
     protected void setCellValueInOffspringSudoku(Sudoku offspringSudoku, Cell selectedCell, int selectedCellRowIdx, int selectedCellColumnIdx){

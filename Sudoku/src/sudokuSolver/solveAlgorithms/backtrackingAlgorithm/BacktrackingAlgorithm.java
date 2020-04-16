@@ -4,12 +4,12 @@ import sudokuInfo.Sudoku;
 import sudokuInfo.Cell;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellPotentialValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
 
 
 public class BacktrackingAlgorithm extends SolveAlgorithm {
 
-    public BacktrackingAlgorithm(CellSelection cellSelection, CellPotentialValueSelection cellValueSelection) {
+    public BacktrackingAlgorithm(CellSelection cellSelection, CellValueSelection cellValueSelection) {
         this.cellSelection = cellSelection;
         this.cellValueSelection = cellValueSelection;
     }
@@ -31,7 +31,7 @@ public class BacktrackingAlgorithm extends SolveAlgorithm {
 
 
         while(selectedCell.hasNotEmptyDomain()){
-            selectCellPotentialValue(selectedCell);
+            selectCellPotentialValue(selectedCell, currentSudoku);
             setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 
             if (offspringSudoku.isSolved())
