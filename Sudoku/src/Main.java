@@ -2,9 +2,9 @@ import dataParser.Parser;
 import sudokuInfo.Sudoku;
 import sudokuSolver.SudokuSolver;
 import sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm.ForwardCheckingAlgorithm;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.LeastOccurencedInRowCellValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellValueSelection.LeastOccurencedInRowCellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveInGridCellSelection;
 

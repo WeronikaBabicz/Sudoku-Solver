@@ -2,7 +2,7 @@ package sudokuSolver.solveAlgorithms;
 
 import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 
 import java.util.ArrayList;

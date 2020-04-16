@@ -4,7 +4,7 @@ import sudokuInfo.Sudoku;
 import sudokuInfo.Cell;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellValueSelection.CellValueSelection;
 
 
 public class BacktrackingAlgorithm extends SolveAlgorithm {

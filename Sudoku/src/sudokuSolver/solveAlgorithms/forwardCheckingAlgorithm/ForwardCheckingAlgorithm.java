@@ -3,7 +3,7 @@ package sudokuSolver.solveAlgorithms.forwardCheckingAlgorithm;
 import sudokuInfo.Cell;
 import sudokuInfo.Sudoku;
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
-import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.CellValueSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellValueSelection.CellValueSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.CellSelection;
 import sudokuSolver.solveAlgorithms.treeStructure.*;
 
