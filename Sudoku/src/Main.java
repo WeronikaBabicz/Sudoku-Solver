@@ -9,17 +9,18 @@ import sudokuSolver.solveAlgorithms.heuristics.cellPotentialValueSelection.InOrd
 import sudokuSolver.solveAlgorithms.SolveAlgorithm;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.InOrderCellSelection;
 import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveCellSelection;
+import sudokuSolver.solveAlgorithms.heuristics.cellSelection.MostRestrictiveInGridCellSelection;
 
 import java.util.ArrayList;
 
 public class Main {
-    private static final int SUDOKU_NUMBER = 41;
+    private static final int SUDOKU_NUMBER = 40;
     public static void main(String [] args){
         Parser parser = new Parser();
         Sudoku sudoku = parser.parse("Sudoku.csv", SUDOKU_NUMBER);
 
-        CellSelection cellSelection = new MostRestrictiveCellSelection();
-        CellPotentialValueSelection cellValueSelection = new RandomCellPotentialValueSelection();
+        CellSelection cellSelection = new MostRestrictiveInGridCellSelection();
+        CellPotentialValueSelection cellValueSelection = new InOrderCellPotentialValueSelection();
 
 
         SolveAlgorithm solveAlgorithm = new ForwardCheckingAlgorithm(cellSelection, cellValueSelection);

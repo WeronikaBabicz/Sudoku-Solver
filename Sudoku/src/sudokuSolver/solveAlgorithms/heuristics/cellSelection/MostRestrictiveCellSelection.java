@@ -12,7 +12,7 @@ public class MostRestrictiveCellSelection implements CellSelection {
         int minDomainSize = 10;
         for (ArrayList<Cell> row: sudoku.getBoard()){
             for (Cell cell: row){
-                if (cell.isEmptyCell() && cell.hasNotEmptyDomain() && cell.getDomain().size() < minDomainSize) {
+                if (cell.isEmptyCell() && cell.getDomain().size() < minDomainSize) {
                     minDomainSize = cell.getDomain().size();
                     selectedCell = cell;
                 }

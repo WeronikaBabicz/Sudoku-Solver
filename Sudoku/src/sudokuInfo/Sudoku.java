@@ -214,4 +214,15 @@ public class Sudoku {
     private boolean hasEmptyCellEmptyDomain(Cell cell){
         return cell.isEmptyCell() && cell.getDomain().size() == 0;
     }
+
+    public int countEmptyCellsInGrid(int gridStartRowIdx, int gridStartColumnIdx){
+        int emptyCells = 0;
+        for (int i = gridStartRowIdx; i < gridStartRowIdx + 3; i++){
+            for (int j = gridStartColumnIdx; j < gridStartColumnIdx + 3; j++){
+                if (getCellFromBoard(i, j).getValue() == Cell.EMPTY_CELL_VALUE)
+                    emptyCells++;
+            }
+        }
+        return emptyCells;
+    }
 }
