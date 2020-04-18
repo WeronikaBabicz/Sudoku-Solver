@@ -14,9 +14,10 @@ public class LeastOccurencedInRowCellValueSelection implements CellValueSelectio
         int rowIndex = sudoku.getRowIndexOfCell(cell);
         ArrayList<Integer> domainValuesInRow = new ArrayList<>();
         for (Cell c : sudoku.getBoard().get(rowIndex))
-            domainValuesInRow.addAll(cell.getDomain());
+            domainValuesInRow.addAll(c.getDomain());
 
-        int leastOccurenced = domainValuesInRow.stream().filter(x -> cell.getDomain().contains(x))
+        int leastOccurenced = domainValuesInRow.stream()
+                            .filter(x -> cell.getDomain().contains(x))
                             .collect(Collectors.groupingBy(w -> w, Collectors.counting()))
                             .entrySet()
                             .stream()
