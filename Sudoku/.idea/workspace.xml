@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8c53f0a-1464-4573-a7ca-dab79cf01311" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuInfo/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuInfo/Sudoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuInfo/Sudoku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/backtrackingAlgorithm/BacktrackingAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/forwardCheckingAlgorithm/ForwardCheckingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/forwardCheckingAlgorithm/ForwardCheckingAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellSelection/MostRestrictiveCellSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokuSolver/solveAlgorithms/heuristics/cellSelection/MostRestrictiveCellSelection.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,7 +32,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../lab2Si_Dawid_Kapica22" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RunDashboard">

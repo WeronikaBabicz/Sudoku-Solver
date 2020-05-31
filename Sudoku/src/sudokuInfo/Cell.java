@@ -18,7 +18,7 @@ public class Cell {
         this.domain = new ArrayList<Integer>(other.domain);
     }
 
-    public int getValue() {
+    int getValue() {
         return value;
     }
 

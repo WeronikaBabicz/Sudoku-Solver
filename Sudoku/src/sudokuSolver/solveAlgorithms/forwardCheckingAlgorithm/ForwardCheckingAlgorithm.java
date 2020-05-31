@@ -35,13 +35,14 @@ public class ForwardCheckingAlgorithm extends SolveAlgorithm {
             selectCellPotentialValue(selectedCell, currentSudoku);
             setCellValueInOffspringSudoku(offspringSudoku, selectedCell, selectedCellRowIdx, selectedCellColumnIdx);
 
-            if (offspringSudoku.isSolved())
+            if (offspringSudoku.isSolved()) {
                 updateSolution(offspringSudoku);
-
+                //incrementVisitedNodes();
+            }
             else if (offspringSudoku.hasCorrectValues()){
                 Sudoku futureSudoku = new Sudoku(offspringSudoku);
                 Cell changedCell = futureSudoku.getBoard().get(selectedCellRowIdx).get(selectedCellColumnIdx);
-
+                incrementVisitedNodes();
                 boolean hasNotEmptyDomains = futureSudoku.shrinkDomains(changedCell, selectedCellPotentialValue);
 
                 if (hasNotEmptyDomains){
